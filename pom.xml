@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>ahsl-costws</name>
+    <description>安徽省立科室成本接口服务</description>
+
+    <groupId>com.viewhigh.oes.vop</groupId>
+    <artifactId>ahsl-costws</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.1.RELEASE</version>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <mybatis.version>2.1.1</mybatis.version>
+        <ojdbc.version>11.2.0.3</ojdbc.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>2.1.1.RELEASE</version>
+        </dependency>
+
+        <!--成本集体框架-->
+        <dependency>
+            <groupId>com.viewhigh.oes.vop</groupId>
+            <artifactId>costall-framework-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- mybatis-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+        <!--oracle驱动-->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>${ojdbc.version}</version>
+        </dependency>
+    </dependencies>
+
+    <!--私服配置 -->
+    <repositories>
+         <repository>
+             <id>maven-public</id>
+             <name>viewhigh</name>
+             <url>http://maven.vh.com:8081/repository/maven-public/</url>
+             <releases>
+                 <enabled>true</enabled>
+             </releases>
+             <snapshots>
+                 <enabled>true</enabled>
+             </snapshots>
+         </repository>
+         <repository>
+             <id>oes-vop-releases</id>
+             <name>viewhigh</name>
+             <url>http://maven.vh.com:8081/repository/oes-vop-release/</url>
+             <releases>
+                 <enabled>true</enabled>
+                 <updatePolicy>always</updatePolicy>
+             </releases>
+             <snapshots>
+                 <enabled>false</enabled>
+             </snapshots>
+         </repository>
+         <repository>
+             <id>oes-vop-snapshots</id>
+             <name>releases</name>
+             <url>http://maven.vh.com:8081/repository/oes-vop-snapshot/</url>
+             <releases>
+                 <enabled>false</enabled>
+             </releases>
+             <snapshots>
+                 <enabled>true</enabled>
+                 <updatePolicy>always</updatePolicy>
+             </snapshots>
+         </repository>
+     </repositories>
+
+     <distributionManagement>
+         <repository>
+             <id>viewhigh-releases</id>
+             <name>releases</name>
+             <url>http://maven.vh.com:8081/repository/oes-vop-release/</url>
+         </repository>
+         <snapshotRepository>
+             <id>viewhigh-snapshots</id>
+             <name>snapshots</name>
+             <url>http://maven.vh.com:8081/repository/oes-vop-snapshot/</url>
+         </snapshotRepository>
+     </distributionManagement>
+</project>
